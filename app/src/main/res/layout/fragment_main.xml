@@ -7,7 +7,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    tools:context="com.kreativeasia.travelmate.MainActivity$PlaceholderFragment">
+    tools:context="com.kreativeasia.travelmate.Activity.MainActivity$PlaceholderFragment">
 
     <TextView
         android:id="@+id/section_label"

@@ -1,4 +1,4 @@
-package com.kreativeasia.travelmate;
+package com.kreativeasia.travelmate.Activity;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -18,6 +19,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.kreativeasia.travelmate.Model.User;
+import com.kreativeasia.travelmate.R;
 
 
 public class MainActivity extends AppCompatActivity
@@ -146,12 +151,15 @@ public class MainActivity extends AppCompatActivity
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             if(getArguments().getInt(ARG_SECTION_NUMBER)==1) {
+                View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+
+                return rootView;
+            }else if(getArguments().getInt(ARG_SECTION_NUMBER)==2){
                 View rootView = inflater.inflate(R.layout.fragment_second, container, false);
 
                 return rootView;
-            }else {
-                View rootView = inflater.inflate(R.layout.fragment_third, container, false);
-
+            }else{
+                View rootView = inflater.inflate(R.layout.fragment_third,container,false);
                 return rootView;
             }
 
@@ -178,16 +186,18 @@ public class MainActivity extends AppCompatActivity
         @Override
         public int getCount() {
             // Show 3 total pages.
-            return 2;
+            return 3;
         }
 
         @Override
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "SECTION 1";
+                    return "home";
                 case 1:
-                    return "SECTION 2";
+                    return "location";
+                case 2:
+                    return "weather";
 
             }
             return null;
